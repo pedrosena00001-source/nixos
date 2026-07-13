@@ -8,8 +8,14 @@
     ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  networking.hostName = "nixos-btw"; 
+  networking.hostName = "nixos"; 
   networking.networkmanager.enable = true;
+  networking.nameservers = [
+            "1.1.1.1"
+            "1.0.0.1"
+            "8.8.8.8"
+            "8.8.4.4"
+   ];
   time.timeZone = "America/Sao_Paulo";
   services.xserver = {
          enable = true;
