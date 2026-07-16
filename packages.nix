@@ -16,5 +16,7 @@ environment.systemPackages = with pkgs; [
     curl
     brave
     waybar
+    steam
+    neovim
   ];
 }

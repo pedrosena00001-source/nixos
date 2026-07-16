@@ -5,17 +5,23 @@
     [
       ./hardware-configuration.nix 
       ./packages.nix
+      ./home.nix
     ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   networking.hostName = "nixos"; 
+  nixpkgs.config.allowUnfree = true;
   networking.networkmanager.enable = true;
-  networking.nameservers = [
-            "1.1.1.1"
-            "1.0.0.1"
-            "8.8.8.8"
-            "8.8.4.4"
-   ];
+   networking.networkmanager.dns = "systemd-resolved";
+   services.resolved = {
+         enable = true;
+         dnssec = "false"; # evita falhas de validação com resolvers que não suportam
+         fallbackDns = [ "1.1.1.1" "8.8.8.8" ];
+};
+   
+   
+   
+   
   time.timeZone = "America/Sao_Paulo";
   services.xserver = {
          enable = true;
