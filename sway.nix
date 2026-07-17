@@ -3,7 +3,6 @@
   wayland.windowManager.sway = {
     enable = true;
     config = null;
-    wayland.windowManager.sway.config.output."*".bg = "${./Wallpapers/blame.jpg} fill";
     extraConfig = ''
          set $mod Mod4
 # Home row direction keys, like vim
@@ -19,8 +18,7 @@ set $menu dmenu_run
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg ~/Wallpapers/blame.jpg fill
-#
+output * bg ${./Wallpapers/blame.jpg} fill
 # Example configuration:
 #
 output HDMI-A-1 position 0,0 mode 1920x1080@74.973Hz
