@@ -1,8 +1,8 @@
-{ config, lib, pkgs, ... }:
-{
+ { config, lib, pkgs, ... }:
+ {
       programs.zsh = {
           enable = true;
-          autosuggestions.enable = true;    
+          autosuggestion.enable = true;    
           syntaxHighlighting.enable = true; 
           enableCompletion = true;
   oh-my-zsh = {
@@ -13,7 +13,7 @@
         "sudo" 
         "history"
         "docker"
-	];
+ 	];
   };
   plugins = [
   		{                              
@@ -21,11 +21,11 @@
                   src = pkgs.zsh-vi-mode;
 	          file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
 	  }
-	];
+	 ];
           shellAliases = {
                  ll = "ls -la";
                  sv = "nvim";
-                 up = "sudo nixos-rebuild switch --flake .#nixos";
+                 up = "sudo nixos-rebuild switch --flake . nixos";
                  v = "vim";
                  garbage = "sudo nix-collect-garbage -d";
                  cdd = "cd nixos-dotfiles";
@@ -41,4 +41,4 @@
 		 sd = "docker";
           };
     };
-}
+ }

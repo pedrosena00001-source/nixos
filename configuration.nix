@@ -5,8 +5,7 @@
     [
       ./hardware-configuration.nix 
       ./packages.nix
-      ./home.nix
-    ];
+   ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   networking.hostName = "nixos"; 
@@ -29,6 +28,7 @@
          autoRepeatInterval = 35;
 };
   services.displayManager.ly.enable = true;
+  security.polkit.enable = true;
   programs.hyprland.enable = true;
   services.xserver.xkb.layout = "br";
   services.xserver.xkb.variant = "abnt2";
@@ -40,8 +40,8 @@
       tree
     ];
   };
-  programs.zsh.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  programs.zsh.enable = true;
   services.flatpak.enable = true;
   users.users.pedro.shell = pkgs.zsh;
   services.openssh = {
