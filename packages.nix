@@ -18,5 +18,7 @@ environment.systemPackages = with pkgs; [
     waybar
     steam
     neovim
+    wl-clipboard
+
   ];
 }

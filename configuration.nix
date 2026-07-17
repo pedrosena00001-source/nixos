@@ -15,7 +15,7 @@
    networking.networkmanager.dns = "systemd-resolved";
    services.resolved = {
          enable = true;
-         dnssec = "false"; # evita falhas de validação com resolvers que não suportam
+         dnssec = "false"; 
          fallbackDns = [ "1.1.1.1" "8.8.8.8" ];
 };
    

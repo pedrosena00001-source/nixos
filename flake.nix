@@ -14,11 +14,11 @@
             modules = [
                 ./configuration.nix
                 home-manager.nixosModules.home-manager
+                ./home.nix
                 {
                    home-manager = {
                         useGlobalPkgs = true;
                         useUserPackages = true;
-                        users.pedro = import ./home.nix;
                         backupFileExtension = "backup";
                       };
                     } 
