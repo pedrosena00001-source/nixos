@@ -7,6 +7,7 @@
     imports = [
        ./zsh.nix
        ./sway.nix
+       ./neovim
     ];
     programs.zsh = {
       enable = true;

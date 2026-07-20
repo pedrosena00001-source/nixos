@@ -10,15 +10,14 @@ environment.systemPackages = with pkgs; [
     fastfetch
     docker
     gh
-    hyprpaper
     adwaita-icon-theme
     awww
     curl
     brave
-    waybar
-    steam
     neovim
     wl-clipboard
-
+    spotify
+    btop
+    bluez
   ];
 }

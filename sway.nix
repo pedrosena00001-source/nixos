@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 {
+
+   home.packages = with pkgs; [
+        dmenu
+	wofi
+    ];
   wayland.windowManager.sway = {
     enable = true;
     config = null;
@@ -14,7 +19,7 @@ set $right l
 set $term kitty
 set $browser brave 
 # Your preferred application launcher
-set $menu dmenu_run
+set $menu wofi --show drun
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -42,6 +47,7 @@ input type:touchpad {
 
     # Start a terminal
     bindsym $mod+q exec $term
+    bindsym $mod+a exec spotify
     bindsym $mod+w exec $browser
 
     # Kill focused window
@@ -120,7 +126,7 @@ input type:touchpad {
 
     bindsym $mod+space focus mode_toggle
 
-    bindsym $mod+a focus parent
+    #bindsym $mod+a focus parent
     bindsym $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
@@ -189,6 +195,8 @@ bar {
 }
   default_border pixel 1
 default_floating_border pixel 1
+gaps inner 10
+gaps outer 5
 default_orientation auto
 include /etc/sway/config.d/*
     '';

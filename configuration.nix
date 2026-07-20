@@ -11,13 +11,16 @@
   networking.hostName = "nixos"; 
   nixpkgs.config.allowUnfree = true;
   networking.networkmanager.enable = true;
-   networking.networkmanager.dns = "systemd-resolved";
-   services.resolved = {
+  networking.networkmanager.dns = "systemd-resolved";
+  services.resolved = {
          enable = true;
          dnssec = "false"; 
          fallbackDns = [ "1.1.1.1" "8.8.8.8" ];
 };
-   
+   hardware.bluetooth = {
+  enable = true;
+  powerOnBoot = false;
+};   
    
    
    
@@ -28,8 +31,8 @@
          autoRepeatInterval = 35;
 };
   services.displayManager.ly.enable = true;
-  security.polkit.enable = true;
   programs.hyprland.enable = true;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   services.xserver.xkb.layout = "br";
   services.xserver.xkb.variant = "abnt2";
   services.xserver.xkb.options = "eurosign:e,caps:escape";

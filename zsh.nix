@@ -1,5 +1,9 @@
  { config, lib, pkgs, ... }:
  {
+      programs.fzf = {
+           enable = true;
+	   enableZshIntegration =true;
+      };
       programs.zsh = {
           enable = true;
           autosuggestion.enable = true;    
@@ -25,7 +29,9 @@
           shellAliases = {
                  ll = "ls -la";
                  sv = "nvim";
-                 up = ""up = "sudo nixos-rebuild switch --flake .#nixos";;
+                 up = "sudo nixos-rebuild switch --flake .#nixos";
+		 update = "sudo nix-channel --update";
+		 fupdate = "sudo nix flake update";
                  v = "vim";
                  garbage = "sudo nix-collect-garbage -d";
                  cdd = "cd nixos-dotfiles";
