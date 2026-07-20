@@ -8,7 +8,7 @@
        ./zsh.nix
        ./sway.nix
        ./neovim
-	./lsp.nix
+       ./lsp.nix
     ];
     programs.zsh = {
       enable = true;
