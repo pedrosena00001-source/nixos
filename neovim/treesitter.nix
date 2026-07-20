@@ -20,21 +20,20 @@
   ];
 
   programs.neovim.extraLuaConfig = ''
-    require("nvim-treesitter.configs").setup({
-      highlight = {
-        enable = true,
-      },
-      indent = {
-        enable = true,
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<leader>v",
-          node_incremental = "<leader>v",
-          node_decremental = "<leader>V",
-        },
-      },
+ require("nvim-treesitter").setup()
+
+    local ts_filetypes = {
+      "nix", "lua", "vim", "vimdoc", "bash", "json", "yaml",
+      "markdown", "markdown_inline", "python", "javascript",
+      "typescript", "html", "css",
+    }
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = ts_filetypes,
+      callback = function()
+        vim.treesitter.start()
+        vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+      end,
     })
   '';
 }
