@@ -6,9 +6,8 @@
     home.stateVersion = "25.05";
     imports = [
        ./zsh.nix
-       ./sway.nix
        ./neovim
-       ./lsp.nix
+	./window-manager
     ];
     programs.zsh = {
       enable = true;

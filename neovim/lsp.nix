@@ -10,12 +10,18 @@
   ];
 
   programs.neovim.extraLuaConfig = ''
-    local lspconfig = require("lspconfig")
+		  vim.lsp.config("nil_ls", {})
+    vim.lsp.config("lua_ls", {})
+    vim.lsp.config("pyright", {})
+    vim.lsp.config("rust_analyzer", {})
+    vim.lsp.config("gopls", {})
 
-    lspconfig.nil_ls.setup({})
-    lspconfig.lua_ls.setup({})
-    lspconfig.pyright.setup({})
-    lspconfig.rust_analyzer.setup({})
-    lspconfig.gopls.setup({})
+    vim.lsp.enable({
+      "nil_ls",
+      "lua_ls",
+      "pyright",
+      "rust_analyzer",
+      "gopls",
+    })
   '';
 }

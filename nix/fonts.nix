@@ -3,7 +3,7 @@
   fonts = {
     packages = with pkgs; [
       nerd-fonts.envy-code-r
-      noto-fonts-emoji     
+      noto-fonts-color-emoji     
     ];
 
     fontconfig = {

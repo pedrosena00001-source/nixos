@@ -2,6 +2,10 @@
 {
 
       programs.neovim.extraLuaConfig = ''
+
+      vim.o.wrap = true
+      vim.o.linebreak = true   
+      vim.o.breakindent = true  
       vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { silent = true })
       vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { silent = true })
       vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', opts)

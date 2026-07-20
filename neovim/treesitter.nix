@@ -11,11 +11,6 @@
       p.yaml
       p.markdown
       p.markdown_inline
-      p.python
-      p.javascript
-      p.typescript
-      p.html
-      p.css
     ]))
   ];
 
@@ -24,8 +19,7 @@
 
     local ts_filetypes = {
       "nix", "lua", "vim", "vimdoc", "bash", "json", "yaml",
-      "markdown", "markdown_inline", "python", "javascript",
-      "typescript", "html", "css",
+      "markdown", "markdown_inline","css"
     }
 
     vim.api.nvim_create_autocmd("FileType", {

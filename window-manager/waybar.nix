@@ -1,34 +1,31 @@
 { config, pkgs, ... }:
-
 {
   programs.waybar = {
     enable = true;
     systemd.enable = false;
-
     settings = {
       mainBar = {
         layer = "top";
         position = "bottom";
         height = 24;
         spacing = 4;
-
-        modules-left = [ "hyprland/workspaces" "hyprland/window" ];
+        modules-left = [ "sway/workspaces" "sway/window" ];
         modules-center = [ "clock" ];
-        modules-right = [ "cpu" "memory" "disk" "tray" ];
+        modules-right = [ "memory" "tray" ];
 
-        "hyprland/workspaces" = {
+        "sway/workspaces" = {
           format = "{icon}";
           on-click = "activate";
           format-icons = {
-            active = "";
-            default = "";
+            focused = "󰧻";
+            default = "󰚌";
           };
           persistent-workspaces = {
             "*" = 5;
           };
         };
 
-        "hyprland/window" = {
+        "sway/window" = {
           format = "{title}";
           max-length = 50;
           separate-outputs = true;
@@ -41,15 +38,9 @@
             mode = "month";
             on-scroll = 1;
             format = {
-              today = "<span color='#cba6f7'><b>{}</b></span>";
+              today = "<span color='#ffffff'><b>{}</b></span>";
             };
           };
-        };
-
-        cpu = {
-          interval = 2;
-          format = " {usage}%";
-          tooltip = false;
         };
 
         memory = {
@@ -57,66 +48,59 @@
           format = " {used:0.1f}G/{total:0.1f}G";
           tooltip-format = "RAM: {percentage}%";
         };
-
-        disk = {
-          interval = 30;
-          format = " {percentage_used}%";
-          path = "/";
-          tooltip-format = "{used} usados de {total}";
-        };
       };
     };
 
-   style = ''
+    style = ''
       * {
-        font-family: "JetBrainsMono Nerd Font";
+        font-family: "EnvyCodeR Nerd Font";
         font-size: 13px;
         border: none;
         border-radius: 0;
         min-height: 0;
       }
+
       window#waybar {
-        background-color: rgba(15, 10, 10, 0.9); /* preto puxado pro marrom */
-        color: #e0c4b8;
+        background-color: rgba(10, 10, 10, 0.9);
+        color: #e0e0e0;
         transition-property: background-color;
         transition-duration: 0.3s;
       }
+
       #workspaces button {
         padding: 0 8px;
-        color: #c9a89a;
+        color: #888888;
         background: transparent;
       }
+
       #workspaces button.active {
-        color: #b5483c;
-        border-bottom: 2px solid #b5483c;
+        color: #ffffff;
+        border-bottom: 2px solid #ffffff;
       }
+
       #workspaces button:hover {
-        background: rgba(181, 72, 60, 0.15);
+        background: rgba(255, 255, 255, 0.1);
       }
+
       #window {
-        color: #a88d80;
+        color: #cccccc;
         padding: 0 10px;
       }
+
       #clock {
         font-weight: bold;
-        color: #c1453a;
+        color: #ffffff;
         padding: 0 12px;
       }
-      #cpu, #memory, #disk, #tray {
-        padding: 0 10px;
-        color: #d6b8aa;
-      }
-      #cpu {
-        color: #b5483c;
-      }
+
       #memory {
-        color: #8a3f2e;
+        padding: 0 10px;
+        color: #aaaaaa;
       }
-      #disk {
-        color: #a85c4a;
-      }
+
       #tray {
         margin-right: 6px;
       }
-    '';  };
+    '';
+  };
 }

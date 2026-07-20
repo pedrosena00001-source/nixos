@@ -11,7 +11,7 @@
        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
-                ./configuration.nix
+                ../nix/configuration.nix
                 home-manager.nixosModules.home-manager
                 {
                    home-manager = {
@@ -19,7 +19,7 @@
                         useUserPackages = true;
                         backupFileExtension = "backup";
                         extraSpecialArgs = { inherit self; };
-                        users.pedro = import ./home.nix;
+                        users.pedro = import ../home.nix;
                       };
                     } 
                   ]; 

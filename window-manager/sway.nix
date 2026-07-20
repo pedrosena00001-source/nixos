@@ -11,29 +11,53 @@
     package = null;
     extraConfig = ''
          set $mod Mod4
-# Home row direction keys, like vim
+
+#Define Minhas Teclas De Setas Para Vim Mode
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+
+#Pré-Definições Das Minhas Keybinds Para Programas
 set $term kitty
 set $browser brave 
-# Your preferred application launcher
 set $menu wofi --show drun
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+
+
+
+#Keybind Do Sistema
+bindsym $mod+q exec $term
+bindsym $mod+a exec spotify
+bindsym $mod+w exec $browser
+bindsym $mod+c  kill
+bindsym $mod+d exec $menu
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+f fullscreen
+
+
+#Auto-Start
+exec --no-startup-id waybar
+exec --no-startup-id brave
+
+#Wallpaper Para o Sway/ Output dos meus monitores
 output * bg ${./Wallpapers/blame.jpg} fill
-# Example configuration:
-#
 output HDMI-A-1 position 0,0 mode 1920x1080@74.973Hz
 output eDP-1 position 1920,0
 
-### Input configuration
-#
-# Example configuration:
 
+#Definições Das Minhas Janelas
+default_border pixel 3
+default_floating_border pixel 1
+client.focused          #FFFFFF #FFFFFF #000000 #FFFFFF #FFFFFF
+client.focused_inactive #000000 #000000 #FFFFFF #000000 #000000
+gaps inner 10
+gaps outer 5
+default_orientation auto
+
+
+
+#Touchpad Para Meu Notebook
 input type:touchpad {
     tap enabled
     tap_button_map lrm
@@ -46,27 +70,9 @@ input type:touchpad {
        xkb_layout "br"
    }
 
-    # Start a terminal
-    bindsym $mod+q exec $term
-    bindsym $mod+a exec spotify
-    bindsym $mod+w exec $browser
-
-    # Kill focused window
-    bindsym $mod+c  kill
-
-    # Start your launcher
-    bindsym $mod+d exec $menu
 
     floating_modifier $mod normal
 
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
-
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-#
-# Moving around:
-#
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -83,14 +89,15 @@ input type:touchpad {
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
+
+
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-#
-# Workspaces:
-#
+    
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -102,6 +109,8 @@ input type:touchpad {
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+    
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -116,26 +125,15 @@ input type:touchpad {
 
     bindsym $mod+b splith
     bindsym $mod+v splitv
-
     bindsym $mod+s layout stacking
     bindsym $mod+p layout tabbed
     #bindsym $mod+e layout toggle split
-
-    bindsym $mod+f fullscreen
-
     bindsym $mod+Shift+space floating toggle
-
     bindsym $mod+space focus mode_toggle
-
     #bindsym $mod+a focus parent
     bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-#
-# Resizing containers:
-#
+
 mode "resize" {
 
     bindsym $left resize shrink width 10px
@@ -154,9 +152,7 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-#
-# Utilities:
-#
+    
     # Special keys to adjust volume via PulseAudio
     bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
     bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
@@ -177,30 +173,6 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec grim
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position bottom
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
-  default_border pixel 3
-default_floating_border pixel 1
-client.focused          #FFFFFF #FFFFFF #000000 #FFFFFF #FFFFFF
-client.focused_inactive #000000 #000000 #FFFFFF #000000 #000000
-gaps inner 10
-gaps outer 5
-default_orientation auto
 include /etc/sway/config.d/*
     '';
   };
