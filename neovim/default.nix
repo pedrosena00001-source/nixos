@@ -2,6 +2,7 @@
 {
 imports = [
    ./options.nix
+   ./lazy_nvim.nix
 ];
 programs.neovim = {
  	enable = true;
