@@ -3,6 +3,7 @@
 imports = [
    ./options.nix
    ./lazy_nvim.nix
+   ./treesitter.nix
 ];
 programs.neovim = {
  	enable = true;
