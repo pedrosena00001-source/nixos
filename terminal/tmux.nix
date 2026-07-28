@@ -2,8 +2,29 @@
 {
 	programs.tmux = {
 	enable = true;
+	shortcut = "a";              
+    baseIndex = 1;               
+    escapeTime = 0;             
+    historyLimit = 10000;
+    mouse = true;
+    terminal = "screen-256color";
+	
+		
+    plugins = with pkgs.tmuxPlugins; [
+      sensible
+      yank
+      resurrect
+      continuum
+    ];
 	extraConfig = ''
-			
+			 set -g status-position bottom
+      bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
+
+      # navegação de painéis estilo vim
+      bind h select-pane -L
+      bind j select-pane -D
+      bind k select-pane -U
+      bind l select-pane -R
 	'';
 	};
 }

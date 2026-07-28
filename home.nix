@@ -5,7 +5,7 @@
     home.homeDirectory = "/home/pedro";
     home.stateVersion = "25.05";
     imports = [
-       ./zsh.nix
+       ./terminal
        ./neovim
 	./window-manager
     ];

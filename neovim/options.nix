@@ -1,16 +1,20 @@
 { config, pkgs, ... }:
 {
+  programs.nvf.settings.vim = {
+    options = {
+      number = true;
+      wrap = true;
+      linebreak = true;
+      breakindent = true;
+    };
 
-      programs.neovim.extraLuaConfig = ''
-
-      vim.o.wrap = true
-      vim.o.linebreak = true   
-      vim.o.breakindent = true  
-      vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { silent = true })
-      vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { silent = true })
-      vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', opts)
-      vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', opts)
-      vim.keymap.set('i', '<A-j>', '<Esc>:m .+1<CR>==gi', opts)
-      vim.keymap.set('i', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
-      '';
+    keymaps = [
+      { mode = ["v"]; key = "K"; action = ":m '<-2<CR>gv=gv"; silent = true; }
+      { mode = ["v"]; key = "J"; action = ":m '>+1<CR>gv=gv"; silent = true; }
+      { mode = ["n"]; key = "<A-k>"; action = ":m .-2<CR>=="; silent = true; }
+      { mode = ["n"]; key = "<A-j>"; action = ":m .+1<CR>=="; silent = true; }
+      { mode = ["i"]; key = "<A-j>"; action = "<Esc>:m .+1<CR>==gi"; silent = true; }
+      { mode = ["i"]; key = "<A-k>"; action = "<Esc>:m .-2<CR>==gi"; silent = true; }
+    ];
+  };
 }

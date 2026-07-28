@@ -5,6 +5,8 @@
       ./hardware-configuration.nix 
       ./packages.nix
 	./fonts.nix
+       ./cpu.nix
+       ./intel.nix
    ];
 
   #Dar Boot Em Sistema UEFI
@@ -32,10 +34,12 @@
          fallbackDns = [ "1.1.1.1" "8.8.8.8" ];
 };
 
+   #Bluetooth
    hardware.bluetooth = {
   enable = true;
-  powerOnBoot = false;
+  powerOnBoot = true;
 };   
+   services.blueman.enable = true;
    
   time.timeZone = "America/Sao_Paulo";
   services.xserver = {

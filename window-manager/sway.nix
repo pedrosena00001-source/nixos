@@ -3,7 +3,6 @@
 
    home.packages = with pkgs; [
         dmenu
-	wofi
     ];
   wayland.windowManager.sway = {
     enable = true;
@@ -20,8 +19,8 @@ set $right l
 
 #Pré-Definições Das Minhas Keybinds Para Programas
 set $term kitty
-set $browser brave 
-set $menu wofi --show drun
+set $browser librewolf 
+set $menu rofi -show drun 
 
 
 
@@ -30,15 +29,21 @@ bindsym $mod+q exec $term
 bindsym $mod+a exec spotify
 bindsym $mod+w exec $browser
 bindsym $mod+c  kill
-bindsym $mod+d exec $menu
+bindsym $mod+d exec ~/nixos-dotfiles/Scripts/select_dotfiles.zsh
+bindsym $mod+shift+x exec ~/nixos-dotfiles/Scripts/shutdown.zsh
+bindsym $mod+space exec $menu
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 bindsym $mod+f fullscreen
 
 
+#Execuções De Terminal
+bindsym $mod+e exec kitty sh -c "./update_system.zsh"
+
+
 #Auto-Start
 exec --no-startup-id waybar
-exec --no-startup-id brave
+exec --no-startup-id librewolf
 
 #Wallpaper Para o Sway/ Output dos meus monitores
 output * bg ${./Wallpapers/blame.jpg} fill
@@ -129,7 +134,7 @@ input type:touchpad {
     bindsym $mod+p layout tabbed
     #bindsym $mod+e layout toggle split
     bindsym $mod+Shift+space floating toggle
-    bindsym $mod+space focus mode_toggle
+    #bindsym $mod+space focus mode_toggle
     #bindsym $mod+a focus parent
     bindsym $mod+Shift+minus move scratchpad
     bindsym $mod+minus scratchpad show

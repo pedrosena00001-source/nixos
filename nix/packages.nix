@@ -6,18 +6,23 @@ environment.systemPackages = with pkgs; [
     git
     librewolf
     kitty
-    rofi
     fastfetch
     docker
     gh
     adwaita-icon-theme
     awww
     curl
-    brave
     neovim
     wl-clipboard
     spotify
     btop
     bluez
+    jdk
+    jetbrains.idea
+    pulseaudio
+    fd
+    ranger
+    zed-editor
+    quickshell
   ];
 }

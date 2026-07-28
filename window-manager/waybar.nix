@@ -11,7 +11,7 @@
         spacing = 4;
         modules-left = [ "sway/workspaces" "sway/window" ];
         modules-center = [ "clock" ];
-        modules-right = [ "memory" "tray" ];
+        modules-right = [ "memory" "tray" "bluetooth" ];
 
         "sway/workspaces" = {
           format = "{icon}";
@@ -24,13 +24,23 @@
             "*" = 5;
           };
         };
-
+	
         "sway/window" = {
           format = "{title}";
           max-length = 50;
           separate-outputs = true;
         };
 
+    "bluetooth" = {
+        format = " {status}";
+        format-disabled = "";
+        format-connected = " {device_alias}";
+        format-connected-battery = " {device_alias} {device_battery_percentage}%";
+        tooltip-format = "{controller_alias}\t{controller_address}";
+        tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
+        tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
+        on-click = "blueman-manager";
+    };
         clock = {
           format = "{:%H:%M  %d/%m/%Y}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
@@ -102,5 +112,5 @@
         margin-right: 6px;
       }
     '';
-  };
+     };
 }
