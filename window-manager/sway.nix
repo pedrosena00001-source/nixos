@@ -46,7 +46,7 @@ exec --no-startup-id waybar
 exec --no-startup-id librewolf
 
 #Wallpaper Para o Sway/ Output dos meus monitores
-output * bg ${./Wallpapers/blame.jpg} fill
+output * bg ${./Wallpapers/cat_smoke.jpg} fill
 output HDMI-A-1 position 0,0 mode 1920x1080@74.973Hz
 output eDP-1 position 1920,0
 

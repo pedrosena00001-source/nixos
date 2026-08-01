@@ -1,5 +1,5 @@
 !#usr/bin/env zsh
-choice=$(echo -e "Shutdown\nReboot" | rofi -dmenu)
+choice=$(echo -e "Shutdown\nReboot" | rofi -dmenu -i)
 echo $choice
 
 if [[ "$choice" == "Shutdown" ]]; then 

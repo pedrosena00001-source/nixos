@@ -18,6 +18,7 @@
         "sudo" 
         "history"
         "docker"
+        "fzf"
  	];
   };
   plugins = [
@@ -26,7 +27,21 @@
                   src = pkgs.zsh-vi-mode;
 	          file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
 	  }
+                {
+                         name = "fzf-tab";
+                                 src = pkgs.fetchFromGitHub {
+                                        owner = "Aloxaf";
+                                        repo = "fzf-tab";
+                                        rev = "v1.3.0";
+                                        sha256 = "sha256-8atbysoOyCBW2OYKmdc91x9V/Mk3eyg3hvzvhJpQ32w=";
+                 };
+                }
 	 ];
+
+ initExtra = ''
+    zstyle ':completion:*' menu select
+    zstyle ':fzf-tab:*' fzf-preview 'ls --color $realpath 2>/dev/null || echo $realpath'
+  '';
            #Aliases Para Meu Zsh 
           shellAliases = {
                  ll = "ls -la";

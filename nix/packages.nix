@@ -22,7 +22,7 @@ environment.systemPackages = with pkgs; [
     pulseaudio
     fd
     ranger
-    zed-editor
     quickshell
+    mpv
   ];
 }

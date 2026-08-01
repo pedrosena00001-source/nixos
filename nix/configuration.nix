@@ -33,7 +33,13 @@
          dnssec = "false"; 
          fallbackDns = [ "1.1.1.1" "8.8.8.8" ];
 };
-
+   #Audio 
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
    #Bluetooth
    hardware.bluetooth = {
   enable = true;

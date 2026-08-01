@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-choice=$(echo -e "Nixos-Dotfiles\nSystem" | rofi -dmenu)
+choice=$(echo -e "Nixos-Dotfiles\nSystem" | rofi -dmenu -i)
 echo $choice
 
 if [[ "$choice" == "Nixos-Dotfiles" ]]; then
