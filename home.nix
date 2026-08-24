@@ -5,11 +5,11 @@
     home.homeDirectory = "/home/pedro";
     home.stateVersion = "25.05";
     imports = [
-	inputs.nvf.homeManagerModules.nvf
+	      inputs.nvf.homeManagerModules.nvf
         inputs.nix-doom-emacs-unstraightened.homeModule
        ./terminal
        ./neovim
-	./window-manager
+	     ./window-manager
     ];
     programs.zsh = {
       enable = true;

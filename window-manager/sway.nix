@@ -20,6 +20,7 @@ set $right l
 set $term kitty
 set $browser librewolf 
 set $menu rofi -show drun 
+set $text-editor emacs
 
 
 
@@ -27,6 +28,7 @@ set $menu rofi -show drun
 bindsym $mod+q exec $term
 bindsym $mod+a exec spotify
 bindsym $mod+w exec $browser
+bindsym $mod+e exec $text-editor
 bindsym $mod+c  kill
 bindsym $mod+space exec $menu
 bindsym $mod+Shift+c reload
@@ -35,7 +37,6 @@ bindsym $mod+f fullscreen
 
 
 #Execuções De Terminal
-bindsym $mod+e exec ~/nixos-dotfiles/Scripts/update_system.zsh
 bindsym $mod+d exec ~/nixos-dotfiles/Scripts/select_dotfiles.zsh
 bindsym $mod+shift+x exec ~/nixos-dotfiles/Scripts/shutdown.zsh
 

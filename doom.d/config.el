@@ -16,8 +16,10 @@
 ;; LSP
 (after! lsp-mode
   (setq lsp-enable-file-watchers nil))
-```
+
 ;;KeyBindings
 (map! :leader
-      "f f" #'find-file)
+      "f f" #'find-file
+      "f x" #'vterm)
+```
       
