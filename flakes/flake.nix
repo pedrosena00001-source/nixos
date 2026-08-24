@@ -39,8 +39,6 @@
                 ../nix/configuration.nix
                 home-manager.nixosModules.home-manager
                 config.flake.modules.nixos.hyprland
-                
-
                 {
                    home-manager = {
                         useGlobalPkgs = true;
@@ -50,7 +48,7 @@
                         users.pedro.imports = [
                           ../home.nix
                           config.flake.modules.homeManager.hyprland
-                        ]; 
+                        ];
                       };
                     } 
                   ]; 

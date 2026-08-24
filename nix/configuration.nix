@@ -4,7 +4,7 @@
     [
       ./hardware-configuration.nix 
       ./packages.nix
-	./fonts.nix
+	    ./fonts.nix
        ./cpu.nix
        ./intel.nix
    ];

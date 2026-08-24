@@ -22,8 +22,6 @@ set $browser librewolf
 set $menu rofi -show drun 
 set $text-editor emacs
 
-
-
 #Keybind Do Sistema
 bindsym $mod+q exec $term
 bindsym $mod+a exec spotify
