@@ -55,7 +55,6 @@
 };
 
   #Programas Gerenciados Pelo Configuration
-  programs.hyprland.enable = true;
   programs.sway.enable = true;
   services.flatpak.enable = true;
   services.displayManager.ly.enable = true;
@@ -75,7 +74,7 @@
 		settings.PasswordAuthentication = false;
 	};
 
-  #Firewall Da Config Do NixOs
+  #Firwall Da Config Do NixOs
   networking.firewall.allowedTCPPorts = [ 80 443 ];
   networking.firewall.allowedUDPPortRanges = [
   { from = 4000; to = 4007; }

@@ -2,16 +2,17 @@
 {
   fonts = {
     packages = with pkgs; [
-      nerd-fonts.envy-code-r
-      noto-fonts-color-emoji     
+        nerd-fonts.jetbrains-mono
+        noto-fonts-color-emoji    
+        fira-code-symbols
     ];
 
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "EnvyCodeR Nerd Font" ];
-        sansSerif = [ "EnvyCodeR Nerd Font" ];
-        serif = [ "EnvyCodeR Nerd Font" ];
+        monospace = [ "JetBrainsMono Nerd Font" ];
+        sansSerif = [ "JetBrainsMono Nerd Font" ];
+        serif = [ "JetBrainsMono Nerd Font" ];
       };
     };
   };

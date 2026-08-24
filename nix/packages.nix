@@ -24,5 +24,7 @@ environment.systemPackages = with pkgs; [
     ranger
     quickshell
     mpv
+    obsidian
+    pavucontrol
   ];
 }

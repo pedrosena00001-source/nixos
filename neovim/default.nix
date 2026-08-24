@@ -22,8 +22,8 @@ programs.nvf = {
 			options.number = true;
                         theme = {
                                 enable = true;
-                                name = "catppuccin";
-                                style = "mocha";
+                                name = "tokyonight";
+                                style = "storm";
                         };
 
                         autocomplete."blink-cmp" = {
@@ -53,6 +53,10 @@ programs.nvf = {
 				enable = true;
 				lsp.enable = true;
 		};
+                        bash = {
+                                        enable = true;
+                                        lsp.enable = true;
+                                };
 	};
         lsp.servers = {
                         basedpyright.cmd = lib.mkForce ["basedpyright-langserver" "--stdio"];

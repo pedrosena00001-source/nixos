@@ -10,18 +10,24 @@
         height = 24;
         spacing = 4;
         modules-left = [ "sway/workspaces" "sway/window" ];
-        modules-center = [ "clock" ];
-        modules-right = [ "memory" "tray" "bluetooth" ];
+        modules-right = [ "memory" "tray" "pulseaudio" "bluetooth" "clock" ];
 
         "sway/workspaces" = {
           format = "{icon}";
           on-click = "activate";
           format-icons = {
-            focused = "󰧻";
-            default = "󰚌";
+                "1" = "I";
+                "2" = "II";
+                "3" = "III";
+                "4" = "IV";
+                "5" = "V";
           };
-          persistent-workspaces = {
-            "*" = 5;
+        persistent-workspaces = {
+                "1" = "I";
+                "2" = "II";
+                "3" = "III";
+                "4" = "IV";
+                "5" = "V";
           };
         };
 	
@@ -41,6 +47,12 @@
         tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
         on-click = "blueman-manager";
     };
+
+        "pulseaudio" = {
+                                format = "";
+                                format-disabled = "󱆶";
+                                on-click = "pavucontrol";
+                                };
         clock = {
           format = "{:%H:%M  %d/%m/%Y}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
@@ -62,55 +74,54 @@
     };
 
     style = ''
-      * {
-        font-family: "EnvyCodeR Nerd Font";
-        font-size: 13px;
-        border: none;
-        border-radius: 0;
-        min-height: 0;
-      }
-
-      window#waybar {
-        background-color: rgba(10, 10, 10, 0.9);
-        color: #e0e0e0;
-        transition-property: background-color;
-        transition-duration: 0.3s;
-      }
-
-      #workspaces button {
-        padding: 0 8px;
-        color: #888888;
-        background: transparent;
-      }
-
-      #workspaces button.active {
-        color: #ffffff;
-        border-bottom: 2px solid #ffffff;
-      }
-
-      #workspaces button:hover {
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      #window {
-        color: #cccccc;
+* {
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+window#waybar {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+}
+#workspaces button {
+  padding: 0 8px;
+  color: #cccccc;
+  background: transparent;
+}
+#workspaces button.focused {
+  color: #dddddd;
+  border-bottom: 2px solid #ffffff;
+}
+#workspaces button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+#window {
+  color: #dddddd;
+  padding: 0 10px;
+}
+#clock {
+  font-weight: bold;
+  color: #ffffff;
+  padding: 0 12px;
+}
+#memory {
+  padding: 0 10px;
+  color: #dddddd;
+}
+#bluetooth {
+  padding: 0 10px;
+  color: #dddddd;
+}
+#pulseaudio {
         padding: 0 10px;
-      }
-
-      #clock {
-        font-weight: bold;
-        color: #ffffff;
-        padding: 0 12px;
-      }
-
-      #memory {
-        padding: 0 10px;
-        color: #aaaaaa;
-      }
-
-      #tray {
-        margin-right: 6px;
-      }
-    '';
+        color: #dddddd;
+}
+#tray {
+  margin-right: 6px;
+}    '';
      };
 }

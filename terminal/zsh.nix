@@ -12,7 +12,7 @@
   #OhMyZsh Configs
   oh-my-zsh = {
     enable = true;
-    theme = "gnzh";
+    theme = "half-life";
     plugins = [
         "git"
         "sudo" 
@@ -45,19 +45,11 @@
            #Aliases Para Meu Zsh 
           shellAliases = {
                  ll = "ls -la";
-                 sv = "nvim";
+                 nv = "nvim";
                  up = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles/flakes#nixos";
-		 updates = "sudo nix-channel --update";
-		 fupdate = "sudo nix flake update --flake ~/nixos-dotfiles/flakes";
-	         update = "cd ~/nixos-dotfiles/Scripts; ./update_system.zsh; up; cd"; 
-                 v = "vim";
+	               update = "cd ~/nixos-dotfiles/Scripts && ./update_system.zsh up && cd"; 
                  garbage = "sudo nix-collect-garbage -d";
                  cdd = "cd ~/nixos-dotfiles";
-	         cds = "cd ~/nixos-dotfiles/Scripts";
-		 cdf = "cd ~/nixos-dotfiles/flakes";
-	         cdw = "cd ~/nixos-dotfiles/window-manager";
-		 cdn = "cd ~/nixos-dotfiles/nix";
-	         cdv = "cd ~/nixos-dotfiles/neovim";
                  gm = "git commit -m";
                  ga = "git add";
                  gs = "git status";
@@ -65,9 +57,8 @@
                  gpm = "git push origin master";
                  ns = "nix-shell -p";
                  sh = "shutdown -h now";
- 		 re = "reboot";
+ 		             re = "reboot";
                  gaa = "git add -A";
-		 sd = "docker";
           };
     };
  }

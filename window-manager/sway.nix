@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 {
-
    home.packages = with pkgs; [
         dmenu
     ];
@@ -29,8 +28,6 @@ bindsym $mod+q exec $term
 bindsym $mod+a exec spotify
 bindsym $mod+w exec $browser
 bindsym $mod+c  kill
-bindsym $mod+d exec ~/nixos-dotfiles/Scripts/select_dotfiles.zsh
-bindsym $mod+shift+x exec ~/nixos-dotfiles/Scripts/shutdown.zsh
 bindsym $mod+space exec $menu
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -38,15 +35,16 @@ bindsym $mod+f fullscreen
 
 
 #Execuções De Terminal
-bindsym $mod+e exec kitty sh -c "./update_system.zsh"
-
+bindsym $mod+e exec ~/nixos-dotfiles/Scripts/update_system.zsh
+bindsym $mod+d exec ~/nixos-dotfiles/Scripts/select_dotfiles.zsh
+bindsym $mod+shift+x exec ~/nixos-dotfiles/Scripts/shutdown.zsh
 
 #Auto-Start
 exec --no-startup-id waybar
 exec --no-startup-id librewolf
 
 #Wallpaper Para o Sway/ Output dos meus monitores
-output * bg ${./Wallpapers/cat_smoke.jpg} fill
+output * bg ${./Wallpapers/black_sabbath_1920x1080_esticada.jpg} fill
 output HDMI-A-1 position 0,0 mode 1920x1080@74.973Hz
 output eDP-1 position 1920,0
 
@@ -60,8 +58,6 @@ gaps inner 10
 gaps outer 5
 default_orientation auto
 
-
-
 #Touchpad Para Meu Notebook
 input type:touchpad {
     tap enabled
@@ -74,8 +70,6 @@ input type:touchpad {
    input type:keyboard {
        xkb_layout "br"
    }
-
-
     floating_modifier $mod normal
 
     # Move your focus around
