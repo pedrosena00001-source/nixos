@@ -48,7 +48,7 @@
                         backupFileExtension = "backup";
                         extraSpecialArgs = { inherit inputs self; };
                         users.pedro.imports = [
-                          ../home.nix
+                          ./home.nix
                           config.flake.modules.homeManager.hyprland
                         ]; 
                       };
